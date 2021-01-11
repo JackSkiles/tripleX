@@ -2,12 +2,12 @@
 
 bool win = false;
 
-void IntroMessage(){
-   std::cout << "Welcome! Please enter 3 numbers to guess the sum and product.\n";
+void IntroMessage(int Difficulty){
+   std::cout << "Welcome!\n  Please enter 3 numbers to guess the sum and product. Level " << Difficulty << std::endl;
 }
-bool PlayGame(){
+bool PlayGame(int Difficulty){
 
-   IntroMessage();
+   IntroMessage(Difficulty);
    int CodeA = 10;
    int CodeB = 15;
    int CodeC = 63;
@@ -25,10 +25,10 @@ bool PlayGame(){
 
    if(GuessSum == CodeSum && GuessProduct == CodeProduct){
        std::cout << "You guessed correctly! ";
-       return false;
+       return true;
    } else {
        std::cout << "You guessed poorly ";
-       return true;
+       return false;
    }
 
    std::cout << GuessSum << " " << GuessProduct << std::endl;
@@ -36,10 +36,18 @@ bool PlayGame(){
 
 int main()
 {
+   int LevelDifficulty = 1;
    while(true){
-      bool levelComplete = PlayGame();
+      bool bLevelComplete = PlayGame(LevelDifficulty);
       std::cin.clear();
       std::cin.ignore();
+
+      if (bLevelComplete)
+      {
+        //   Increase difficulty
+        ++LevelDifficulty;
+      }
+      
    }
    return 0;
 }
