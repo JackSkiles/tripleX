@@ -1,7 +1,5 @@
 #include <iostream>
 
-bool win = false;
-
 void IntroMessage(int Difficulty){
    std::cout << "Welcome!\n  Please enter 3 numbers to guess the sum and product. Level " << Difficulty << std::endl;
 }
@@ -37,7 +35,8 @@ bool PlayGame(int Difficulty){
 int main()
 {
    int LevelDifficulty = 1;
-   while(true){
+   int const LastLevel = 10;
+   while(LevelDifficulty <= LastLevel){ // Loop until all levels completed  
       bool bLevelComplete = PlayGame(LevelDifficulty);
       std::cin.clear();
       std::cin.ignore();
