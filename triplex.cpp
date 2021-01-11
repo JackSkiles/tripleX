@@ -7,6 +7,8 @@ int main()
    std::cin >> GuessA;
    std::cin >> GuessB;
    std::cin >> GuessC;
-   std::cout << GuessA << GuessB << GuessC;
+   int GuessSum = GuessA + GuessB + GuessC;
+   int GuessProduct = GuessA * GuessB * GuessC;
+   std::cout << GuessSum << " " << GuessProduct;
     return 0;
 }
