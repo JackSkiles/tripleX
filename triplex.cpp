@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 
 void IntroMessage(int Difficulty){
    std::cout << "\nWelcome!\n  Please enter 3 numbers to guess the sum and product. Level " << Difficulty << std::endl;
@@ -6,9 +7,9 @@ void IntroMessage(int Difficulty){
 bool PlayGame(int Difficulty, int LastLevel){
 
    IntroMessage(Difficulty);
-   int CodeA = 10;
-   int CodeB = 15;
-   int CodeC = 63;
+   int CodeA = rand() % 15;
+   int CodeB = rand() % 15;
+   int CodeC = rand() & 15;
 
    int GuessA, GuessB, GuessC;
 
@@ -22,17 +23,18 @@ bool PlayGame(int Difficulty, int LastLevel){
    int GuessProduct = GuessA * GuessB * GuessC;
 
    if(Difficulty == LastLevel){
-       std::cout << "\nYou won the game! ";
+       std::cout << "\nYou creaked the code! ";
    }
    if(GuessSum == CodeSum && GuessProduct == CodeProduct){
        std::cout << "\nYou guessed correctly! Moving to next level ";
+       std::cout << CodeProduct << " " << CodeSum << std::endl;
        return true;
    } else {
-       std::cout << "\nYou guessed poorly ";
+       std::cout << "\nYou missed that one! Try another ";
+       std::cout << CodeSum << " " << CodeProduct << std::endl;
        return false;
    }
 
-   std::cout << GuessSum << " " << GuessProduct << std::endl;
 }
 
 int main()
