@@ -7,9 +7,9 @@ void IntroMessage(int Difficulty){
 bool PlayGame(int Difficulty, int LastLevel){
 
    IntroMessage(Difficulty);
-   int CodeA = rand() % 15;
-   int CodeB = rand() % 15;
-   int CodeC = rand() & 15;
+   const int CodeA = (rand() % Difficulty) + 1;
+   const int CodeB = (rand() % Difficulty) + 1;
+   const int CodeC = (rand() & Difficulty) + 1;
 
    int GuessA, GuessB, GuessC;
 
