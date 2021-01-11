@@ -2,6 +2,9 @@
 
 int main()
 {
-   std::cout << "Hello";
+
+   int CodeInput;
+   std::cin >> CodeInput;
+   std::cout << CodeInput;
     return 0;
 }
